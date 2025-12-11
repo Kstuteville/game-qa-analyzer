@@ -1,5 +1,3 @@
-
- 
 import sys
 import json
 from pathlib import Path
@@ -35,31 +33,14 @@ def merge_logs(
     gameplay.sort(key=lambda x: x.get("time", 0))
     emotion.sort(key=lambda x: x.get("time", 0))
 
-    # If no emotion data, fallback gracefully
-    if len(emotion) == 0:
-        print("⚠️ Warning: Emotion log is empty. All merged records will use emotion='unknown'")
-        merged = [
-            {
-                "time": ev.get("time", 0),
-                "game_event": ev.get("event", "unknown"),
-                "emotion_state": "unknown",
-                "game_details": ev.get("details", {})
-            }
-            for ev in gameplay
-        ]
-        with open(output_json_path, "w") as f:
-            json.dump(merged, f, indent=2)
-        return merged
-
     merged = []
     emo_idx = 0
     emo_len = len(emotion)
 
-    # Linear-time merge O(N)
     for event in gameplay:
         t = event.get("time", 0)
 
-        # Advance emotion pointer while next emotion timestamp is closer
+        # Find closest emotion timestamp
         while (
             emo_idx < emo_len - 1 and
             abs(emotion[emo_idx + 1].get("time", 0) - t)
@@ -67,23 +48,24 @@ def merge_logs(
         ):
             emo_idx += 1
 
-        # Now emotion[emo_idx] is the closest timestamp
         closest = emotion[emo_idx]
         diff = abs(closest.get("time", 0) - t)
 
+        # ✔ FIX: correct emotion key from FER ("state")
         if diff <= max_time_diff:
-            # Updated FER schema: "emotion_state"
-            emotion_state = closest.get("emotion_state", "unknown")
+            emotion_state = closest.get("state", "unknown")
         else:
             emotion_state = "unknown"
 
+        # ✔ FIX: correct gameplay key ("game_event")
+        game_event = event.get("game_event") or event.get("event", "unknown")
+
         merged.append({
             "time": t,
-            "game_event": event.get("event", "unknown"),
+            "game_event": game_event,
             "emotion_state": emotion_state,
             "confidence": closest.get("confidence", None)
                 if diff <= max_time_diff else None,
-            "game_details": event.get("details", {})
         })
 
     with open(output_json_path, "w") as f:
