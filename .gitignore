@@ -19,3 +19,9 @@ venv/
 __pycache__/
 *.so
 *.dylib
+
+key
+*.env
+*.key
+*.json
+*.txt
