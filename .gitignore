@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Streamlit artifacts
+data/
+models/
+*.mp4
+*.json
+
+# OS junk
+.DS_Store
+venv/
+__pycache__/
+*.so
+*.dylib
