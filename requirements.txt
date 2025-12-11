@@ -1,0 +1,29 @@
+ultralytics
+opencv-python
+numpy
+Pillow
+
+# FER emotion recognition
+fer
+facenet-pytorch
+mtcnn
+
+# Needed for video frame extraction
+ffmpeg-python
+
+# OpenAI / LLM
+openai
+
+# Streamlit UI
+streamlit
+
+# Helpful utilities
+python-dotenv
+requests
+tqdm
+
+
+
+#For tomorrow
+pip install torch --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
