@@ -1,4 +1,4 @@
-# game-qa-analyzer
+# Emotion-Trace-QA
 Game QA Analyzer
 Emotion-Aware Gameplay Analysis for Scalable Game QA
 Computer-vision–driven QA system that analyzes gameplay footage and correlates in-game events with player emotional states, producing structured, timestamped insights without manual video review.
