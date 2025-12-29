@@ -16,7 +16,8 @@ Designed for game studios, QA teams, and researchers working with pre-release or
 
 ## 🎥 Demo
 
-[![Demo Video]]("https://www.youtube.com/embed/JMtA4VYmuvw?si=rvWdu795TkcTdlvY") 
+[![Emotion Trace QA Demo](https://img.youtube.com/vi/JMtA4VYmuvw/maxresdefault.jpg)](https://www.youtube.com/watch?v=JMtA4VYmuvw)
+
 
 
 ✨ Features
