@@ -3,6 +3,7 @@ Game QA Analyzer
 Emotion-Aware Gameplay Analysis for Scalable Game QA
 Computer-vision–driven QA system that analyzes gameplay footage and correlates in-game events with player emotional states, producing structured, timestamped insights without manual video review.
 
+
 🚀 Overview
 Game QA Analyzer automates playtest analysis by combining:
 
@@ -11,6 +12,12 @@ Game QA Analyzer automates playtest analysis by combining:
 - Temporal Alignment (when and why)
 
 Designed for game studios, QA teams, and researchers working with pre-release or private builds where traditional analytics fall short.
+
+
+## 🎥 Demo
+
+[![Demo Video]]("https://www.youtube.com/embed/JMtA4VYmuvw?si=rvWdu795TkcTdlvY") 
+
 
 ✨ Features
 
