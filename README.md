@@ -32,6 +32,9 @@ Each detected gameplay event is **time-aligned with player emotion**, allowing t
 > In short:  
 > **This turns raw gameplay video into structured, card-level UX telemetry — without engine access.**
 
+<img width="1550" height="528" alt="Screenshot 2026-02-08 at 4 53 24 AM" src="https://github.com/user-attachments/assets/e254c92a-bd87-4f98-8561-1defc0abdd4b" />
+<img width="1505" height="179" alt="Screenshot 2026-02-08 at 4 53 10 AM" src="https://github.com/user-attachments/assets/78dc47c7-95e3-48cb-9c65-4cc5927cf541" />
+
 ---
 
 ## Why This Matters 
@@ -104,12 +107,6 @@ All credit for dataset creation and labeling goes to the original authors.
 
 ---
 
-## Sample Visuals
-
-Custom detection examples from the Clash Royale model:
-<img width="1422" height="921" alt="Screenshot 2026-02-08 at 4 00 22 AM" src="https://github.com/user-attachments/assets/9e2dbaae-ecbc-437a-bb07-52d2f02618e0" />
-
-
 
 ---
 
@@ -123,6 +120,10 @@ Custom detection examples from the Clash Royale model:
 ---
 
 *This hackathon extension demonstrates how video-only, domain-aware AI can enable scalable UX research for games without engine access.*
+
+
+<img width="1417" height="916" alt="Screenshot 2026-02-08 at 4 01 04 AM" src="https://github.com/user-attachments/assets/7a149f24-ca32-4df2-b986-86823b1b48af" />
+
 
 ___________________________________________________________________________________________
 
