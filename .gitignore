@@ -28,3 +28,15 @@ key
 
 data/*.mp4
 data/*.mpy
+
+# big artifacts
+output/
+runs/
+*.zip
+*.pt
+
+# python junk
+__pycache__/
+*.pyc
+venv/
+.venv/
