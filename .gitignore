@@ -40,3 +40,22 @@ __pycache__/
 *.pyc
 venv/
 .venv/
+# env
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# generated artifacts
+runs/
+output/
+data/
+*.zip
+*.mp4
+*.mov
+*.avi
+*.pt
+*.onnx
+
+# streamlit / misc
+.DS_Store
