@@ -1,3 +1,138 @@
+#DOMAIN UPDATE
+# Clash Royale- Gameplay UX & Emotion QA Analyzer
+### Hackathon Edition — Clash Royale Domain Extension
+<img width="1422" height="921" alt="Screenshot 2026-02-08 at 4 00 22 AM" src="https://github.com/user-attachments/assets/4420907a-8f72-44af-aa4f-1942a08086b6" />
+
+This project is a **multimodal gameplay UX & QA analysis system** that combines:
+
+- 🎥 Gameplay video understanding (computer vision)
+- 🙂 Player facial emotion recognition
+- 🤖 AI-generated UX / QA insights
+
+For this hackathon, the system was extended with a **Clash Royale–specific domain module**, demonstrating how a generic video-based analyzer can be adapted to a real commercial game using **custom-trained models and game-aware logic**.
+
+---
+
+## 🆕 Clash Royale Domain Module (Hackathon Update)
+
+### What is this?
+
+The **Clash Royale Domain Module** is a domain-aware extension that enables the system to understand **actual Clash Royale gameplay semantics**, rather than generic objects or motion.
+
+Instead of detecting abstract entities, the analyzer now detects and reasons about:
+
+- **Specific troops** (e.g. *Mega Knight, Hog Rider, Musketeer, Skeletons*)
+- **Spells** (e.g. *Rage, Poison*)
+- **Buildings & towers**
+- **UI-only and decision-making states**
+- **Gameplay pacing signals** (troop spikes, spell bursts, stagnation)
+
+Each detected gameplay event is **time-aligned with player emotion**, allowing the system to explain *how gameplay decisions correlate with emotional response*.
+
+> In short:  
+> **This turns raw gameplay video into structured, card-level UX telemetry — without engine access.**
+
+---
+
+## Why This Matters 
+
+Most game analytics rely on:
+- Engine telemetry (often unavailable), or
+- Generic computer vision that lacks gameplay meaning
+
+This project demonstrates a third approach:
+-  **Video-only analysis**
+-  **Domain-specific perception**
+- **Emotion-aware UX interpretation**
+
+Using Clash Royale as a case study, the system can answer questions like:
+- *Which cards or spells trigger frustration or confidence?*
+- *When do players hesitate or disengage?*
+- *Which moments correlate with emotional spikes during combat?*
+
+The same architecture can be extended to **other games** by training new models and defining new domain profiles.
+
+---
+
+##  Model & System Changes (What Was Added)
+
+### 1. Custom YOLOv8 Model (Clash Royale)
+
+- Trained a **custom YOLOv8 detector** on a Clash Royale dataset
+- Model detects **troops, spells, towers, buildings, and UI elements**
+- Replaces generic COCO classes with **game-specific labels**
+
+### 2. Domain-Aware Gameplay Logic
+
+The original gameplay analyzer was refactored to:
+- Log **specific troop and spell names per frame**
+- Detect **troop spikes**, **spell casts**, and **UI-only states**
+- Preserve the original generic (COCO) pipeline as a fallback
+
+Clash Royale is implemented as a **domain profile**, not a hard-coded fork — keeping the system modular and extensible.
+
+### 3. Emotion-Aligned Timeline
+
+- Facial emotion recognition runs independently
+- Gameplay and emotion logs are merged by timestamp
+- The final timeline links **what happened in-game** with **how the player felt**
+
+---
+
+## 📊 Example Outputs
+
+**Structured gameplay events**
+- Troop deployments (by card name)
+- Spell usage bursts
+- Long hesitation / stagnation periods
+
+**Emotion-aware UX insights**
+- Confidence spikes during spell combos
+- Frustration during prolonged UI-only states
+- Emotional response to specific card usage
+
+---
+
+##  Dataset Credit
+
+This Clash Royale detector was trained using the following open dataset:
+
+**Clash Royale Detection Dataset**  
+📎 https://github.com/wty-yy/Clash-Royale-Detection-Dataset  
+
+All credit for dataset creation and labeling goes to the original authors.
+
+---
+
+## Sample Visuals
+
+Custom detection examples from the Clash Royale model:
+<img width="1422" height="921" alt="Screenshot 2026-02-08 at 4 00 22 AM" src="https://github.com/user-attachments/assets/9e2dbaae-ecbc-437a-bb07-52d2f02618e0" />
+
+
+
+---
+
+##  Future Work
+
+- Deeper **temporal reasoning** across multi-second decision windows
+- Player modeling across matches
+- Generalizing the domain module framework to additional games
+- Research into **emotion-conditioned gameplay difficulty and pacing**
+
+---
+
+*This hackathon extension demonstrates how video-only, domain-aware AI can enable scalable UX research for games without engine access.*
+
+___________________________________________________________________________________________
+
+
+
+
+FIRST PROTOTYPE BELOW
+
+
+
 # Emotion-Trace-QA
 Game QA Analyzer
 Emotion-Aware Gameplay Analysis for Scalable Game QA
