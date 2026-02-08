@@ -59,3 +59,22 @@ data/
 
 # streamlit / misc
 .DS_Store
+
+# outputs / experiments
+runs/
+output/
+data/
+
+# local env
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# model weights / large binaries
+*.pt
+*.pth
+*.onnx
+*.mp4
+*.mov
+*.zip
