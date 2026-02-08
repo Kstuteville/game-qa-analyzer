@@ -22,8 +22,16 @@ python-dotenv
 requests
 tqdm
 
-
+pip install pandas plotly
 
 #For tomorrow
 pip install torch --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
+no deepface on the big one 
+
+
+#on dell also 
+git clone https://github.com/YOUR_USERNAME/game-qa-analyzer.git
+cd game-qa-analyzer
+pip install -r requirements.txt
+streamlit run src/app.py
