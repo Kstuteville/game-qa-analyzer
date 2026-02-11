@@ -3,6 +3,9 @@
 ### Hackathon Edition — Clash Royale Domain Extension
 <img width="1422" height="921" alt="Screenshot 2026-02-08 at 4 00 22 AM" src="https://github.com/user-attachments/assets/4420907a-8f72-44af-aa4f-1942a08086b6" />
 
+
+LINK TO DEMO https://youtu.be/9vKlLBTzMZ4 
+
 This project is a **multimodal gameplay UX & QA analysis system** that combines:
 
 - 🎥 Gameplay video understanding (computer vision)
