@@ -1,6 +1,4 @@
 # profiles.py
-
-# paste your unit_list here (exact strings must match your trained model names)
 UNIT_LIST = [
     "king-tower",
     "queen-tower",
@@ -158,7 +156,6 @@ UNIT_LIST = [
     "ice-spirit-evolution-symbol",
     "zap-evolution",
 ]
-
 GENERIC_COCO = {
     "id": "generic_coco",
     "label": "Generic / COCO (Fortnite-style heuristics)",
@@ -173,11 +170,7 @@ CLASH_ROYALE = {
     "conf_threshold": 0.35,
     "frame_sample_rate": 2,
     "mode": "clash",
-
-    # ✅ include everything so you don’t filter out mega-knight etc
     "classes_of_interest": set(UNIT_LIST),
-
-    # optional: used for “spell_cast” events
     "spell_names": {
         "fireball", "the-log", "zap", "rocket", "lightning",
         "poison", "freeze", "tornado", "rage", "earthquake",
