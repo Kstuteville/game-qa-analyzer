@@ -15,10 +15,6 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 
-
-# ---------------------------------------------------------
-# MODEL LOADING (profile-aware)
-# ---------------------------------------------------------
 def load_model(profile: dict | None):
     if profile and profile.get("mode") == "clash":
         custom = Path("models") / "custom_yolov8.pt"
@@ -32,9 +28,6 @@ def load_model(profile: dict | None):
     return YOLO("yolov8n.pt")
 
 
-# ---------------------------------------------------------
-# MAIN ANALYZER
-# ---------------------------------------------------------
 def analyze_gameplay(
     video_path: str,
     output_json_path: str = "gameplay_log.json",
@@ -78,7 +71,7 @@ def analyze_gameplay(
     }
     TOWER_CLASSES = {"king-tower", "queen-tower", "cannoneer-tower", "dagger-duchess-tower"}
 
-    # Not perfect, but good demo buckets (edit anytime)
+    # not perfect, but good demo buckets (edit anytime)
     BUILDING_CLASSES = {
         "cannon", "tesla", "inferno-tower", "bomb-tower", "tombstone",
         "goblin-hut", "barbarian-hut", "elixir-collector", "x-bow", "mortar",
@@ -111,7 +104,7 @@ def analyze_gameplay(
                 frame_idx += 1
                 continue
 
-            # ---- collect detections ----
+
             detected = []  # list of (name, conf)
             if results and results[0].boxes is not None:
                 for box in results[0].boxes:
@@ -134,9 +127,6 @@ def analyze_gameplay(
             for name, _c in detected:
                 counts[name] = counts.get(name, 0) + 1
 
-            # ------------------------------------------------------------------
-            # CLASH MODE: log specific names (THIS is what your report needs)
-            # ------------------------------------------------------------------
             if MODE == "clash":
                 spells_seen = sorted({n for n in counts.keys() if n in SPELL_NAMES})
                 towers_seen = sorted({n for n in counts.keys() if n in TOWER_CLASSES})
@@ -204,9 +194,6 @@ def analyze_gameplay(
                             "details": {"ui": ui_seen, "towers": towers_seen}
                         })
 
-            # ------------------------------------------------------------------
-            # COCO MODE: keep your original heuristic events
-            # ------------------------------------------------------------------
             else:
                 enemy_count = sum(counts.get(n, 0) for n in ENEMY_CLASSES)
                 projectile_count = sum(counts.get(n, 0) for n in PROJECTILE_CLASSES)
@@ -228,9 +215,6 @@ def analyze_gameplay(
                         "details": {"brightness": round(mean_brightness, 2)}
                     })
 
-            # ------------------------------------------------------------------
-            # STAGNATION (applies to both modes)
-            # ------------------------------------------------------------------
             if prev_frame_gray is not None:
                 diff = cv2.absdiff(frame_gray, prev_frame_gray)
                 diff_norm = float(np.mean(diff)) / 255.0
@@ -259,10 +243,6 @@ def analyze_gameplay(
     print(f"\nSaved gameplay analysis to {output_json_path}")
     return events
 
-
-# ---------------------------------------------------------
-# CLI ENTRY
-# ---------------------------------------------------------
 def main():
     if len(sys.argv) < 2:
         print("Usage: python yolo_analyzer.py <video.mp4>")
